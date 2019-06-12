@@ -1,26 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchPosts } from "../actions";
 
 class PostList extends Component {
-  renderList = () => this.props.posts.map(post => {
-    return (
-      <div className="item" key={post.title}>
-        
-      </div>
-    );
-  });
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
 
   render() {
-    return (
-      <div>
-        PostList
-      </div>
-    );
+    console.log(this.props.posts);
+    return <div>PostList</div>;
   }
 }
 
-const mapStateToProps = state => { 
-  return {posts: state.posts }
+const mapStateToProps = state => {
+  return { posts: state.posts };
 };
 
-export default connect(mapStateToProps)(PostList);
+export default connect(
+  mapStateToProps,
+  { fetchPosts }
+)(PostList);
