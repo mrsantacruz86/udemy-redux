@@ -14,3 +14,8 @@ svg {
 .jumbotron{
   text-align: center;
 }
+
+td:first-of-type, td:first-of-type > div {
+  height: 12rem;
+  width: 15rem;
+}
