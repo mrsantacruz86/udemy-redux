@@ -8,17 +8,14 @@ class StreamList extends React.Component {
     this.props.fetchPosts();
   }
 
-  renderAdmin(stream) {
-    if (stream.userId === this.props.currentUserId) {
+  renderButtons(post) {
+    if (post.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link to={`/streams/edit/${stream.id}`} className="ui button primary">
+          <Link to={`/posts/edit/${post.id}`} className="ui button primary">
             Edit
           </Link>
-          <Link
-            to={`/streams/delete/${stream.id}`}
-            className="ui button negative"
-          >
+          <Link to={`/posts/delete/${post.id}`} className="ui button negative">
             Delete
           </Link>
         </div>
@@ -30,13 +27,13 @@ class StreamList extends React.Component {
     return this.props.posts.map(post => {
       return (
         <div className="item" key={post.id}>
-          {this.renderAdmin(post)}
-          <i className="large middle aligned icon camera" />
+          {this.renderButtons(post)}
+          <i className="large middle alligned icon user" />
           <div className="content">
             <Link to={`/posts/${post.id}`} className="header">
               {post.title}
             </Link>
-            <div className="description">{post.description}</div>
+            <div className="description">{post.content}</div>
           </div>
         </div>
       );
@@ -47,12 +44,12 @@ class StreamList extends React.Component {
     return (
       <div>
         <h2>Posts</h2>
-        <div className="ui celled list">{this.renderList()}</div>
         <div style={{ textAlign: "right" }}>
           <Link to="/posts/new" className="ui button primary">
             Create Post
           </Link>
         </div>
+        <div className="ui celled list">{this.renderList()}</div>
       </div>
     );
   }
