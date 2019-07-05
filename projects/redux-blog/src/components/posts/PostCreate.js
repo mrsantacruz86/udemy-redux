@@ -1,18 +1,18 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createStream } from '../../actions';
-import StreamForm from './StreamForm';
+import React from "react";
+import { connect } from "react-redux";
+import { createPost } from "../../actions";
+import PostForm from "./PostForm";
 
 class StreamCreate extends React.Component {
   onSubmit = formValues => {
-    this.props.createStream(formValues);
+    this.props.createPost(formValues);
   };
 
   render() {
     return (
       <div>
-        <h3>Create a Stream</h3>
-        <StreamForm onSubmit={this.onSubmit} />
+        <h3>Create a Post</h3>
+        <PostForm onSubmit={this.onSubmit} />
       </div>
     );
   }
@@ -20,5 +20,5 @@ class StreamCreate extends React.Component {
 
 export default connect(
   null,
-  { createStream }
+  { createPost }
 )(StreamCreate);

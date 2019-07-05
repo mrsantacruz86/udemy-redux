@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import PostIndex from "./posts/PostIndex";
-// import PostCreate from "./posts/PostCreate";
+import PostCreate from "./posts/PostCreate";
 // import PostEdit from "./posts/PostEdit";
 // import PostDelete from "./posts/PostDelete";
 // import PostShow from "./posts/PostShow";
@@ -16,8 +16,8 @@ const App = () => {
           <Header />
           <Switch>
             <Route path="/" exact component={PostIndex} />
-            {/* <Route path="/posts/new" exact component={StreamCreate} />
-            <Route path="/posts/edit/:id" exact component={StreamEdit} />
+            <Route path="/posts/new" exact component={PostCreate} />
+            {/* <Route path="/posts/edit/:id" exact component={StreamEdit} />
             <Route path="/posts/delete/:id" exact component={StreamDelete} />
             <Route path="/posts/:id" exact component={StreamShow} /> */}
           </Switch>

@@ -1,16 +1,9 @@
 import posts from "../apis/posts";
 import history from "../history";
-import {
-  CREATE_POST,
-  FETCH_POSTS,
-  FETCH_POST,
-  DELETE_POST,
-  EDIT_POST
-} from "./types";
+import { CREATE_POST, FETCH_POSTS, FETCH_POST, DELETE_POST, EDIT_POST } from "./types";
 
 export const createPost = formValues => async (dispatch, getState) => {
-  const { userId } = getState().auth;
-  const response = await posts.post("/posts", { ...formValues, userId });
+  const response = await posts.post("/posts", { ...formValues });
 
   dispatch({ type: CREATE_POST, payload: response.data });
   history.push("/");

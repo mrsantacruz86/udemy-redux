@@ -30,9 +30,7 @@ class StreamList extends React.Component {
           {this.renderButtons(post)}
           <i className="large middle alligned icon user" />
           <div className="content">
-            <Link to={`/posts/${post.id}`} className="header">
-              {post.title}
-            </Link>
+            <h3 className="header">{post.title}</h3>
             <div className="description">{post.content}</div>
           </div>
         </div>
@@ -46,7 +44,7 @@ class StreamList extends React.Component {
         <h2>Posts</h2>
         <div style={{ textAlign: "right" }}>
           <Link to="/posts/new" className="ui button primary">
-            Create Post
+            Add a Post
           </Link>
         </div>
         <div className="ui celled list">{this.renderList()}</div>
