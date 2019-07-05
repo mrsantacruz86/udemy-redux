@@ -12,9 +12,6 @@ class StreamList extends React.Component {
     if (post.userId === this.props.currentUserId) {
       return (
         <div className="right floated content">
-          <Link to={`/posts/edit/${post.id}`} className="ui button primary">
-            Edit
-          </Link>
           <Link to={`/posts/delete/${post.id}`} className="ui button negative">
             Delete
           </Link>
@@ -30,7 +27,9 @@ class StreamList extends React.Component {
           {this.renderButtons(post)}
           <i className="large middle alligned icon user" />
           <div className="content">
-            <h3 className="header">{post.title}</h3>
+            <h3 className="header">
+              <Link to={`/posts/${post.id}`}>{post.title}</Link>
+            </h3>
             <div className="description">{post.content}</div>
           </div>
         </div>
